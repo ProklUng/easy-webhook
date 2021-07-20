@@ -1,7 +1,19 @@
 # Отличия от оригинала
 
 - Выпилена автоконфигурация Middlewares
-- Несколько сервисов сделано публичными.
+- Несколько сервисов сделано публичными (чтобы работало в режиме сервис-локатора)
+
+```php
+        use EonX\EasyWebhook\Interfaces\WebhookClientInterface;
+        use EonX\EasyWebhook\Webhook;
+
+        $webhookClient = container()->get(WebhookClientInterface::class);
+        // Create simple webhook
+        $webhook = Webhook::create('http://test.ru/', ['event' => 'showcase'], 'GET');
+         $result = $webhookClient->sendWebhook($webhook);
+```
+
+- Маленько подшаманил c composer.json 
 - В оригинальной документации не указано, что бандл зависит от двух других бандлов:
 
 ```php
@@ -11,6 +23,19 @@ return [
     EonX\EasyLock\Bridge\Symfony\EasyLockSymfonyBundle::class => ['all' => true],
     EonX\EasyEventDispatcher\Bridge\Symfony\EasyEventDispatcherSymfonyBundle::class => ['all' => true],
 ];
+```
+
+### Установка
+
+composer.json:
+
+```json
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/proklung/easy-webhook"
+    }
+  ],
 ```
 
 ---eonx_docs---
