@@ -67,7 +67,7 @@ easy_webhook:
     signature:
         enabled: true
         signature_header: 'My-Signature-Header'
-        signer: 'Rs256Signer::class'
+        signer: 'EonX\EasyWebhook\Signers\Rs256Signer'
         secret: 'my-secret'
     use_default_middleware: true
 ```
