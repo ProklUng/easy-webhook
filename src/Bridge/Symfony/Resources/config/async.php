@@ -12,7 +12,7 @@ use EonX\EasyWebhook\Interfaces\AsyncDispatcherInterface;
 return static function (ContainerConfigurator $container): void {
     $services = $container->services();
     $services->defaults()
-        ->autoconfigure()
+        ->autoconfigure(false)
         ->autowire();
 
     $services
