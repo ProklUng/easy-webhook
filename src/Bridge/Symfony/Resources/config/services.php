@@ -39,7 +39,7 @@ return static function (ContainerConfigurator $container): void {
     $services->set(WebhookBodyFormatterInterface::class, JsonFormatter::class);
 
     // Commands
-    $services->set(SendDueWebhooksCommand::class);
+    $services->set(SendDueWebhooksCommand::class)->tag('console.command');
 
     // Data Cleaner (Default)
     $services->set(DataCleanerInterface::class, NullDataCleaner::class);
