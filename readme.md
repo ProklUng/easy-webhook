@@ -1,3 +1,18 @@
+# Отличия от оригинала
+
+- Выпилена автоконфигурация Middlewares
+- Несколько сервисов сделано публичными.
+- В оригинальной документации не указано, что бандл зависит от двух других бандлов:
+
+```php
+return [
+// ...
+    EonX\EasyWebhook\Bridge\Symfony\EasyWebhookSymfonyBundle::class => ['all' => true],
+    EonX\EasyLock\Bridge\Symfony\EasyLockSymfonyBundle::class => ['all' => true],
+    EonX\EasyEventDispatcher\Bridge\Symfony\EasyEventDispatcherSymfonyBundle::class => ['all' => true],
+];
+```
+
 ---eonx_docs---
 title: Introduction
 weight: 0

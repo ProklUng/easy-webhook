@@ -63,6 +63,7 @@ return static function (ContainerConfigurator $container): void {
     // Webhook Client
     $services
         ->set(WebhookClientInterface::class, WebhookClient::class)
+        ->public()
         ->arg('$stack', ref(BridgeConstantsInterface::STACK));
 
     // Stores (Default)

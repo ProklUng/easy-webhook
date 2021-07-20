@@ -24,7 +24,8 @@ return static function (ContainerConfigurator $container): void {
     $services = $container->services();
     $services->defaults()
         ->autowire()
-        ->autoconfigure();
+        ->tag(BridgeConstantsInterface::TAG_MIDDLEWARE)
+        ->autoconfigure(false);
 
     // BEFORE MIDDLEWARE
     $services
